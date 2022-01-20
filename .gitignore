@@ -16,3 +16,353 @@ bin-release/
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
+.pio/build/project.checksum
+.pio/build/cubecell_board_plus/idedata.json
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/.gitignore
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/.piopm
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/Adafruit_BME280.cpp
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/Adafruit_BME280.h
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/library.properties
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/LICENSE
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/README.md
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/.github/ISSUE_TEMPLATE.md
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/.github/PULL_REQUEST_TEMPLATE.md
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/.github/workflows/githubci.yml
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/assets/board.jpg
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/examples/advancedsettings/advancedsettings.ino
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/examples/bme280_unified/bme280_unified.ino
+.pio/libdeps/cubecell_board_plus/Adafruit BME280 Library/examples/bme280test/bme280test.ino
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/.gitignore
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/Adafruit_Sensor.cpp
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/Adafruit_Sensor.h
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/library.properties
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/LICENSE.txt
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/README.md
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/examples/sensortest/sensortest.ino
+.pio/libdeps/cubecell_board_plus/ArduinoLog/.gitignore
+.pio/libdeps/cubecell_board_plus/ArduinoLog/.piopm
+.pio/libdeps/cubecell_board_plus/ArduinoLog/.travis.yml
+.pio/libdeps/cubecell_board_plus/ArduinoLog/ArduinoLog.cpp
+.pio/libdeps/cubecell_board_plus/ArduinoLog/ArduinoLog.h
+.pio/libdeps/cubecell_board_plus/ArduinoLog/keywords.txt
+.pio/libdeps/cubecell_board_plus/ArduinoLog/library.json
+.pio/libdeps/cubecell_board_plus/ArduinoLog/library.properties
+.pio/libdeps/cubecell_board_plus/ArduinoLog/LICENSE.md
+.pio/libdeps/cubecell_board_plus/ArduinoLog/README.md
+.pio/libdeps/cubecell_board_plus/ArduinoLog/examples/Log-advanced/Log-advanced.ino
+.pio/libdeps/cubecell_board_plus/ArduinoLog/examples/Log-basic/Log-basic.ino
+.pio/build/cubecell_board_plus/.sconsign37.dblite
+.pio/build/cubecell_board_plus/firmware.cyacd
+.pio/build/cubecell_board_plus/firmware.elf
+.pio/build/cubecell_board_plus/firmware.hex
+.pio/build/cubecell_board_plus/libFrameworkArduino.a
+.pio/build/cubecell_board_plus/libFrameworkArduinoVariant.a
+.pio/build/cubecell_board_plus/FrameworkArduino/basic.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/main.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/wiring_shift.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/WMath.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/SPI/SPI.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/Serial/HardwareSerial.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/Wire/Wire.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/board/board.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/board/src/asr_board.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/board/src/gpio-board.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/board/src/gpio.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/board/src/spi-board.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/ADC_SAR_Seq_INT.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/ADC_SAR_Seq_intClock.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/ADC_SAR_Seq_IRQ.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/ADC_SAR_Seq_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/ADC_SAR_Seq.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_1_I2C_INT.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_1_I2C_MASTER.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_1_I2C.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_1_SCB_IRQ.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_1_SCBCLK.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_I2C_INT.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_I2C_MASTER.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_I2C.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_SCB_IRQ.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/I2C_SCBCLK.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/irq.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/Print.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/PWM1_ISR.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/PWM1_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/PWM1.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/PWM2_ISR.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/PWM2_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/PWM2.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/stdlib_noniso.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/Stream.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/cores/WString.cpp.o
+.pio/build/cubecell_board_plus/FrameworkArduino/device/sx126x/sx126x.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/lora/system/delay.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/lora/system/low_power.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/lora/system/utilities.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/lora/system/crypto/aes.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/lora/system/crypto/cmac.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/port/aos_port.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/port/flash_port.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/port/port_s.S.o
+.pio/build/cubecell_board_plus/FrameworkArduino/port/printf.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/port/uart_port.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/Bootloadable_1.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/Cm0plusStart.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/cy_em_eeprom.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/CyBootAsmGnu.S.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/cybootloader.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/CyDMA.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/CyFlash.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/CyLFClk.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/CyLib.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/cymetadata.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/cyPm.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/cyutils.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/RTC.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_1_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_1_SCBCLK.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_1_SPI_UART.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_1_SPI.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_1.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_2_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_2_SCBCLK.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_2_SPI_UART.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/SPI_2_SPI.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_BOOT.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_rx_wake_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_rx_wake.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_RX_WAKEUP_IRQ.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_SCB_IRQ.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_SCBCLK.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_SPI_UART_INT.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_SPI_UART.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_tx_PM.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_tx.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_UART_BOOT.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_1_UART.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_2_SCB_IRQ.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_2_SCBCLK.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_2_SPI_UART_INT.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_2_SPI_UART.c.o
+.pio/build/cubecell_board_plus/FrameworkArduino/projects/PSoC4/UART_2_UART.c.o
+.pio/build/cubecell_board_plus/lib504/libDISPLAY.a
+.pio/build/cubecell_board_plus/lib504/DISPLAY/HT_Display.cpp.o
+.pio/build/cubecell_board_plus/lib504/DISPLAY/HT_DisplayUi.cpp.o
+.pio/build/cubecell_board_plus/lib641/libAdafruit Unified Sensor.a
+.pio/build/cubecell_board_plus/lib641/Adafruit Unified Sensor/Adafruit_Sensor.cpp.o
+.pio/build/cubecell_board_plus/lib68c/libRGB.a
+.pio/build/cubecell_board_plus/lib68c/RGB/CubeCell_NeoPixel.cpp.o
+.pio/build/cubecell_board_plus/lib70a/libLoRa.a
+.pio/build/cubecell_board_plus/lib70a/LoRa/LoRa_APP.cpp.o
+.pio/build/cubecell_board_plus/lib70a/LoRa/LoRaWan_APP.cpp.o
+.pio/build/cubecell_board_plus/lib965/libBasics.a
+.pio/build/cubecell_board_plus/lib965/Basics/softSerial.cpp.o
+.pio/build/cubecell_board_plus/lib9d2/libArduinoLog.a
+.pio/build/cubecell_board_plus/lib9d2/ArduinoLog/ArduinoLog.cpp.o
+.pio/build/cubecell_board_plus/lib9f9/libOneWire.a
+.pio/build/cubecell_board_plus/lib9f9/OneWire/OneWire.cpp.o
+.pio/build/cubecell_board_plus/libb06/libLoraWan102.a
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/LoRaMac.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/LoRaMacClassB.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/LoRaMacConfirmQueue.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/LoRaMacCrypto.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/Region.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionAS923.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionAU915.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionCN470.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionCN779.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionCommon.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionEU433.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionEU868.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionIN865.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionKR920.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionUS915-Hybrid.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/loramac/region/RegionUS915.c.o
+.pio/build/cubecell_board_plus/libb06/LoraWan102/radio/radio.c.o
+.pio/build/cubecell_board_plus/libcec/libAdafruit BME280 Library.a
+.pio/build/cubecell_board_plus/libcec/Adafruit BME280 Library/Adafruit_BME280.cpp.o
+.pio/build/cubecell_board_plus/src/main.cpp.o
+.pio/build/cubecell_board_plus/src/SdsDustSensor.cpp.o
+.pio/build/cubecell_board_plus/src/SdsDustSensorResults.cpp.o
+.vscode/c_cpp_properties.json
+.vscode/extensions.json
+.vscode/launch.json
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/.gitignore
+src/device_config_akiot-htcc-ab01-umweltsensor01.h
+src/device_config_akiot-htcc-ab01-umweltsensor02.h
+src/device_config_akiot-htcc-ab02.h
+src/device_config.h
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/.gitignore
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/.gitignore
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/.gitignore
+.pio/libdeps/cubecell_board_plus/Adafruit Unified Sensor/.gitignore
+.pio/build/cubecell_board/.sconsign37.dblite
+.pio/build/cubecell_board/firmware.cyacd
+.pio/build/cubecell_board/firmware.elf
+.pio/build/cubecell_board/firmware.hex
+.pio/build/cubecell_board/idedata.json
+.pio/build/cubecell_board/libFrameworkArduino.a
+.pio/build/cubecell_board/libFrameworkArduinoVariant.a
+.pio/build/cubecell_board/FrameworkArduino/basic.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/main.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/wiring_shift.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/WMath.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/SPI/SPI.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/Serial/HardwareSerial.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/Wire/Wire.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/board/board.c.o
+.pio/build/cubecell_board/FrameworkArduino/board/src/asr_board.c.o
+.pio/build/cubecell_board/FrameworkArduino/board/src/gpio-board.c.o
+.pio/build/cubecell_board/FrameworkArduino/board/src/gpio.c.o
+.pio/build/cubecell_board/FrameworkArduino/board/src/spi-board.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/ADC_SAR_Seq_INT.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/ADC_SAR_Seq_intClock.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/ADC_SAR_Seq_IRQ.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/ADC_SAR_Seq_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/ADC_SAR_Seq.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_1_I2C_INT.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_1_I2C_MASTER.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_1_I2C.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_1_SCB_IRQ.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_1_SCBCLK.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_I2C_INT.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_I2C_MASTER.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_I2C.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_SCB_IRQ.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/I2C_SCBCLK.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/irq.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/Print.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/cores/PWM1_ISR.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/PWM1_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/PWM1.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/PWM2_ISR.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/PWM2_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/PWM2.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/stdlib_noniso.c.o
+.pio/build/cubecell_board/FrameworkArduino/cores/Stream.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/cores/WString.cpp.o
+.pio/build/cubecell_board/FrameworkArduino/device/sx126x/sx126x.c.o
+.pio/build/cubecell_board/FrameworkArduino/lora/system/delay.c.o
+.pio/build/cubecell_board/FrameworkArduino/lora/system/low_power.c.o
+.pio/build/cubecell_board/FrameworkArduino/lora/system/utilities.c.o
+.pio/build/cubecell_board/FrameworkArduino/lora/system/crypto/aes.c.o
+.pio/build/cubecell_board/FrameworkArduino/lora/system/crypto/cmac.c.o
+.pio/build/cubecell_board/FrameworkArduino/port/aos_port.c.o
+.pio/build/cubecell_board/FrameworkArduino/port/flash_port.c.o
+.pio/build/cubecell_board/FrameworkArduino/port/port_s.S.o
+.pio/build/cubecell_board/FrameworkArduino/port/printf.c.o
+.pio/build/cubecell_board/FrameworkArduino/port/uart_port.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/Bootloadable_1.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/Cm0plusStart.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/cy_em_eeprom.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/CyBootAsmGnu.S.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/cybootloader.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/CyDMA.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/CyFlash.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/CyLFClk.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/CyLib.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/cymetadata.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/cyPm.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/cyutils.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/RTC.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_1_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_1_SCBCLK.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_1_SPI_UART.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_1_SPI.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_1.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_2_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_2_SCBCLK.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_2_SPI_UART.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/SPI_2_SPI.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_BOOT.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_rx_wake_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_rx_wake.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_RX_WAKEUP_IRQ.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_SCB_IRQ.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_SCBCLK.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_SPI_UART_INT.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_SPI_UART.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_tx_PM.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_tx.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_UART_BOOT.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_1_UART.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_2_SCB_IRQ.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_2_SCBCLK.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_2_SPI_UART_INT.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_2_SPI_UART.c.o
+.pio/build/cubecell_board/FrameworkArduino/projects/PSoC4/UART_2_UART.c.o
+.pio/build/cubecell_board/lib504/libDISPLAY.a
+.pio/build/cubecell_board/lib504/DISPLAY/HT_Display.cpp.o
+.pio/build/cubecell_board/lib504/DISPLAY/HT_DisplayUi.cpp.o
+.pio/build/cubecell_board/lib68c/libRGB.a
+.pio/build/cubecell_board/lib68c/RGB/CubeCell_NeoPixel.cpp.o
+.pio/build/cubecell_board/lib70a/libLoRa.a
+.pio/build/cubecell_board/lib70a/LoRa/LoRa_APP.cpp.o
+.pio/build/cubecell_board/lib70a/LoRa/LoRaWan_APP.cpp.o
+.pio/build/cubecell_board/lib965/libBasics.a
+.pio/build/cubecell_board/lib965/Basics/softSerial.cpp.o
+.pio/build/cubecell_board/lib9f9/libOneWire.a
+.pio/build/cubecell_board/lib9f9/OneWire/OneWire.cpp.o
+.pio/build/cubecell_board/libb06/libLoraWan102.a
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/LoRaMac.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/LoRaMacClassB.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/LoRaMacConfirmQueue.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/LoRaMacCrypto.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/Region.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionAS923.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionAU915.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionCN470.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionCN779.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionCommon.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionEU433.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionEU868.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionIN865.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionKR920.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionUS915-Hybrid.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/loramac/region/RegionUS915.c.o
+.pio/build/cubecell_board/libb06/LoraWan102/radio/radio.c.o
+.pio/build/cubecell_board/libe19/libAdafruit BME280 Library.a
+.pio/build/cubecell_board/libe19/Adafruit BME280 Library/Adafruit_BME280.cpp.o
+.pio/build/cubecell_board/libf6e/libArduinoLog.a
+.pio/build/cubecell_board/libf6e/ArduinoLog/ArduinoLog.cpp.o
+.pio/build/cubecell_board/libfd1/libAdafruit Unified Sensor.a
+.pio/build/cubecell_board/libfd1/Adafruit Unified Sensor/Adafruit_Sensor.cpp.o
+.pio/build/cubecell_board/src/main.cpp.o
+.pio/build/cubecell_board/src/SdsDustSensor.cpp.o
+.pio/build/cubecell_board/src/SdsDustSensorResults.cpp.o
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/.gitignore
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/.piopm
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/Adafruit_BME280.cpp
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/Adafruit_BME280.h
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/library.properties
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/LICENSE
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/README.md
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/.github/ISSUE_TEMPLATE.md
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/.github/PULL_REQUEST_TEMPLATE.md
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/.github/workflows/githubci.yml
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/assets/board.jpg
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/examples/advancedsettings/advancedsettings.ino
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/examples/bme280_unified/bme280_unified.ino
+.pio/libdeps/cubecell_board/Adafruit BME280 Library/examples/bme280test/bme280test.ino
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/.gitignore
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/Adafruit_Sensor.cpp
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/Adafruit_Sensor.h
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/library.properties
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/LICENSE.txt
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/README.md
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/examples/sensortest/sensortest.ino
+.pio/libdeps/cubecell_board/ArduinoLog/.gitignore
+.pio/libdeps/cubecell_board/ArduinoLog/.piopm
+.pio/libdeps/cubecell_board/ArduinoLog/.travis.yml
+.pio/libdeps/cubecell_board/ArduinoLog/ArduinoLog.cpp
+.pio/libdeps/cubecell_board/ArduinoLog/ArduinoLog.h
+.pio/libdeps/cubecell_board/ArduinoLog/keywords.txt
+.pio/libdeps/cubecell_board/ArduinoLog/library.json
+.pio/libdeps/cubecell_board/ArduinoLog/library.properties
+.pio/libdeps/cubecell_board/ArduinoLog/LICENSE.md
+.pio/libdeps/cubecell_board/ArduinoLog/README.md
+.pio/libdeps/cubecell_board/ArduinoLog/examples/Log-advanced/Log-advanced.ino
+.pio/libdeps/cubecell_board/ArduinoLog/examples/Log-basic/Log-basic.ino
+.pio/libdeps/cubecell_board/Adafruit Unified Sensor/.gitignore

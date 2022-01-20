@@ -726,21 +726,21 @@ void downLinkDataHandle(McpsIndication_t *mcpsIndication)
 void loop()
 {
   //Log.verbose(F("loop entry point: deviceState: %d"),deviceState);
-	switch( deviceState )
-	{
-		case DEVICE_STATE_INIT:
-		{
+  switch( deviceState )
+  {
+    case DEVICE_STATE_INIT:
+    {
 #if(LORAWAN_DEVEUI_AUTO)
-			LoRaWAN.generateDeveuiByChipID();
+    LoRaWAN.generateDeveuiByChipID();
 #endif
 #if(AT_SUPPORT)
       //Log.verbose(F("getDevParam ..."));
-			getDevParam();
+      getDevParam();
 #endif
       //Log.verbose(F("printDevParam ..."));
-			printDevParam();
+      printDevParam();
 
-			LoRaWAN.init(loraWanClass,loraWanRegion);
+      LoRaWAN.init(loraWanClass,loraWanRegion);
 
       // set data rate and spreading factor
       // source: https://www.thethingsnetwork.org/forum/t/example-ttn-code-for-heltec-htcc-ab02a-with-gps-in-us915/46093/6
@@ -758,40 +758,40 @@ void loop()
        */
       LoRaWAN.setDataRateForNoADR(1);
       
-			deviceState = DEVICE_STATE_JOIN;
-			break;
-		}
-		case DEVICE_STATE_JOIN:
-		{
-			LoRaWAN.join();
-			break;
-		}
-		case DEVICE_STATE_SEND:
-		{
-			prepareTxFrame( appPort );
-			LoRaWAN.send();
-			deviceState = DEVICE_STATE_CYCLE;
-			break;
-		}
-		case DEVICE_STATE_CYCLE:
-		{
-			// Schedule next packet transmission
-			txDutyCycleTime = appTxDutyCycle + randr( 0, APP_TX_DUTYCYCLE_RND );
+      deviceState = DEVICE_STATE_JOIN;
+      break;
+    }
+    case DEVICE_STATE_JOIN:
+    {
+      LoRaWAN.join();
+      break;
+    }
+    case DEVICE_STATE_SEND:
+    {
+      prepareTxFrame( appPort );
+      LoRaWAN.send();
+      deviceState = DEVICE_STATE_CYCLE;
+      break;
+    }
+    case DEVICE_STATE_CYCLE:
+    {
+      // Schedule next packet transmission
+      txDutyCycleTime = appTxDutyCycle + randr( 0, APP_TX_DUTYCYCLE_RND );
       //Log.verbose(F("DEVICE_STATE_CYCLE: appTxDutyCycle: %d"), int(appTxDutyCycle/1000));
       LoRaWAN.cycle(txDutyCycleTime);
       deviceState = DEVICE_STATE_SLEEP;
-			break;
-		}
-		case DEVICE_STATE_SLEEP:
-		{
-      //Log.verbose(F("going into deep sleep"));
-			LoRaWAN.sleep();
       break;
-		}
-		default:
-		{
-			deviceState = DEVICE_STATE_INIT;
-			break;
-		}
-	}
+    }
+    case DEVICE_STATE_SLEEP:
+    {
+      //Log.verbose(F("going into deep sleep"));
+      LoRaWAN.sleep();
+      break;
+    }
+    default:
+    {
+      deviceState = DEVICE_STATE_INIT;
+      break;
+    }
+  }
 }

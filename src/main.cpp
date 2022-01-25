@@ -448,6 +448,8 @@ void setup() {
   }
 
   setup_logging();
+
+  print_timer_values();
   
   setup_check_battery();
 

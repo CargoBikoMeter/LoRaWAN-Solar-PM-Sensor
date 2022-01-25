@@ -32,9 +32,6 @@ uint16_t MEASURE_RESTART_VOLTAGE  = _MEASURE_RESTART_VOLTAGE;  // no measurement
 uint32_t DEEP_SLEEP_TIME = _DEEP_SLEEP_TIME;
 uint32_t DEEP_SLEEP_CYCLE = _DEEP_SLEEP_CYCLE;
 
-// Pin for switching Step-Up module HW-668 On and Off
-// needs 140 mA to drive SDS011 with 5V and 73 mA
-int VStepUpPin = _VStepUpPin;
 
 /************** sub functions *******************/
 
@@ -56,30 +53,12 @@ void VextOFF() //Vext default OFF
   delay(500);
 }
 
-void VStepUpOFF() // switch power for SDS011 On
-{ 
-  // initialize the pin for P-MOSFET switch for StepUpModul as output
-  pinMode(VStepUpPin,OUTPUT);
-  Log.verbose(F("VStepUpOFF"));
-  digitalWrite(VStepUpPin, HIGH);
-  delay(1000);
-}
-
-void VStepUpON() // switch power for SDS011 Off
-{ 
-  pinMode(VStepUpPin,OUTPUT);
-  Log.verbose(F("VStepUpON"));
-  digitalWrite(VStepUpPin, LOW);
-  delay(1000);
-}
-
 void print_timer_values() {
   Log.verbose(F("DEEP_SLEEP_CYCLE = %d"),DEEP_SLEEP_CYCLE);
   Log.verbose(F("DEEP_SLEEP_TIME = %d"),DEEP_SLEEP_TIME);
   Log.verbose(F("MEASURE_SHUTDOWN_VOLTAGE = %d"),MEASURE_SHUTDOWN_VOLTAGE);
   Log.verbose(F("MEASURE_RESTART_VOLTAGE = %d"),MEASURE_RESTART_VOLTAGE);
   Log.verbose(F("Duty cycle: %d s"),int(appTxDutyCycle / 1000));
-
 }
 
 void set_led(uint8_t r, uint8_t g, uint8_t b) {
@@ -105,7 +84,7 @@ void set_led(uint8_t r, uint8_t g, uint8_t b) {
 }
 
 
-// BEGIN sensor stuff 
+// *****   BEGIN sensor stuff   *****
 
 void reset_measurement_data() {
   Log.notice(F("reset_measurement_data - reset appData fields"));
@@ -122,7 +101,6 @@ void reset_measurement_data() {
   appData[9] = 0;  // p25
   appData[10] = 0; // p10
   appData[11] = 0; // p10
-
 }
 
 /********************************************/
@@ -190,7 +168,6 @@ void check_battery() {
 /*****************/
 /* BME280 sensor */
 /*****************/
-
 // Adafruit BME280 settings
 #define SEALEVELPRESSURE_HPA (1013.25)
 Adafruit_BME280 bme; // I2C
@@ -233,17 +210,15 @@ void get_BME280() {
   appData[5] = humidity >> 8;
   appData[6] = pressure;
   appData[7] = pressure >> 8;
-      
   }
 }
 
 /*****************/
 /* SDS011 sensor */
 /*****************/
+#define FAN_SPINUP 30000 // fan 'clean' time before measurements in milliseconds; 30000 (default)
 
-#define FAN_SPINUP 15000 // fan 'clean' time before measurements in miliseconds; 30000 (default)
-
-// softSerial based communication for Heltec cubecell boards: 
+// softSerial based communication for Heltec cubecell boards
 softSerial softwareSerial(_BoardTxPin,_BoardRxPin); // sds(_BoardTxPin->SDS011-RXD, _BoardRxPin->SDS011-TXD)
 SdsDustSensor  sds(softwareSerial);  
 
@@ -251,15 +226,13 @@ bool SDS_OK = false; // false: not OK; true: OK (no communication error)
 
 void init_SDS011(){
   String FIRMWARE_VERSION;
+
+  pinMode(_BoardRxPin,INPUT_PULLDOWN);
   // SDS011 init
   Log.notice(F("init_SDS011"));
-  
-  // switch StepUp module On - for 3-to-5V power converter
-  Log.notice(F(" switch StepUp module On"));
-  VStepUpON();
 
+  Log.notice(F(" initialize sensor"));
   sds.begin();
-  delay(2000);
 
   Log.notice(F(" wakeup sensor"));
   sds.wakeup();
@@ -305,7 +278,7 @@ void get_SDS011() {
       appData[8] = tmp;
       appData[9] = tmp>>8;
       tmp = (uint16_t)(pm.pm10 * 100);
-      //Log.verbose(F(" PM10 assigned to tmp for TTN appData[10,11]:: %d"),tmp);
+      Log.verbose(F(" PM10 assigned to tmp for TTN appData[10,11]:: %d"),tmp);
       appData[10] = tmp;
       appData[11] = tmp>>8; 
     }
@@ -314,10 +287,7 @@ void get_SDS011() {
     // for BME280 sensor (2.8 Volt, after sleep 3.2 Volt)
     Log.notice(F(" set SDS011 sensor to sleep"));
     sds.sleep();
-    delay(1000);
   }
-  // switch StepUp module Off
-  //VStepUpOFF(); // TODO: does not work currently, prevents LoRa sending data
   Log.verbose(F(" exit function get_SDS011"));
 }
 
@@ -325,23 +295,20 @@ void measure() {
   Log.notice(F("measure"));
   // reset and get measurement data
   reset_measurement_data();
-  //check_battery();
+  check_battery();
 
   if ( DO_MEASUREMENT && ! REMOTE_NO_MEASUREMENT ) {
     // initialize and read PM data from SDS011
+    // switch power ON for SDS011 and BME280 sensor
+    VextON();
+   
     init_SDS011();
     get_SDS011();
   
-    // now get BME280 data without active SDS011 sensor to ensure
-    // the battery voltage on Vext is high enough
     // Init I2C and serial communication
     // Wire.end() required, see: http://community.heltec.cn/t/cubecell-vext-with-i2c-sensors/886
     // ensures that the I2C work correctly, maybe a problem of the Wire library
     // without that, the BME280 initialization fails in most cases
-    //delay(1000);
-
-    // switch Vext pin ON for BME280 sensor
-    VextON(); // 
 
     Wire.end();
     Wire.begin(); 
@@ -350,8 +317,9 @@ void measure() {
     get_BME280();
     Wire.end();
 
-    // switch OFF Vext power if Pixel-LED should not ON
+    // switch OFF Vext to save power during sleep period
     if ( !DRAIN_BATTERY ) {
+      detachInterrupt(_BoardRxPin); // prevents system hang after switching power off
       VextOFF();
     }
   } else {
@@ -360,7 +328,7 @@ void measure() {
   }
 }
 
-// END sensor stuff 
+// *****   END sensor stuff   ***** 
 
 
 /*
@@ -465,6 +433,7 @@ void printNewline(Print* _logOutput, int logLevel) {
 }
 
 void setup_logging() {
+  Log.verbose(F("setup(): Logging started"));
   Log.begin(LOGLEVEL, &Serial);
   Log.setPrefix(printTimestamp);
   Log.setSuffix(printNewline);
@@ -477,25 +446,16 @@ void setup() {
 	  Serial.begin(115200);
     delay(1000);
   }
+
   setup_logging();
-  Log.verbose(F("setup(): Logging started"));
-
-  //setup_check_battery();
-
-  // initialize Pixel-LED
-  //set_led(LEDR,LEDG,LEDB);
-
-  VextOFF(); // disable Vext
-
-  // switch off SDS011 power
-  VStepUpOFF();
+  
+  setup_check_battery();
 
 #if(AT_SUPPORT)
 	enableAt();
 #endif
 	deviceState = DEVICE_STATE_INIT;
 	LoRaWAN.ifskipjoin();
-
 }
 
 // -------------- Command Processing -----------------
@@ -777,14 +737,14 @@ void loop()
     {
       // Schedule next packet transmission
       txDutyCycleTime = appTxDutyCycle + randr( 0, APP_TX_DUTYCYCLE_RND );
-      //Log.verbose(F("DEVICE_STATE_CYCLE: appTxDutyCycle: %d"), int(appTxDutyCycle/1000));
+      Log.verbose(F("DEVICE_STATE_CYCLE: appTxDutyCycle: %d"), int(appTxDutyCycle/1000));
       LoRaWAN.cycle(txDutyCycleTime);
       deviceState = DEVICE_STATE_SLEEP;
       break;
     }
     case DEVICE_STATE_SLEEP:
     {
-      //Log.verbose(F("going into deep sleep"));
+      Log.verbose(F("going into deep sleep"));
       LoRaWAN.sleep();
       break;
     }

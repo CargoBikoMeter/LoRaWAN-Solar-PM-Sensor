@@ -71,7 +71,7 @@ Status SdsDustSensor::readIntoBytes(byte responseId) {
       #endif
       return Status::Ok;
     }
-    //TODO: check if ist must be disabled   yield();
+    yield();
   }
 
   #ifdef __DEBUG_SDS_DUST_SENSOR__

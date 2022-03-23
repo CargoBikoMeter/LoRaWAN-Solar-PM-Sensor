@@ -16,6 +16,10 @@
 #define _LORA_APP_DATA_SIZE 12
 #define _HAS_RGB 1
 
+// Pin for switching Step-Up module HW-668 On and Off
+// needs 140 mA to drive SDS011 with 5V and 73 mA
+int VStepUpPin = _VStepUpPin;
+
 uint8_t LEDR = 0, LEDG = 0, LEDB = 0;
 bool LEDON = false;
 bool DRAIN_BATTERY = false;
@@ -25,8 +29,8 @@ CubeCell_NeoPixel pixels(1, RGB, NEO_GRB + NEO_KHZ800);
 bool MEASUREMENT_FINISHED = false;
 bool DO_MEASUREMENT = true;
 bool REMOTE_NO_MEASUREMENT = false;
-uint16_t BATTERY_VOLTAGE = 0;
-uint16_t LAST_BATTERY_VOLTAGE = 0;
+uint16_t VDD_VOLTAGE = 0; // we use the ADC pin GPIO2
+uint16_t LAST_VDD_VOLTAGE = 0;
 uint16_t MEASURE_SHUTDOWN_VOLTAGE = _MEASURE_SHUTDOWN_VOLTAGE; // system shutdown below 3.5 Volt
 uint16_t MEASURE_RESTART_VOLTAGE  = _MEASURE_RESTART_VOLTAGE;  // no measurement below 3.6 Volt
 uint32_t DEEP_SLEEP_TIME = _DEEP_SLEEP_TIME;
@@ -50,6 +54,24 @@ void VextOFF() //Vext default OFF
   Log.notice(F("VextOFF"));
   pinMode(Vext,OUTPUT);
   digitalWrite(Vext, HIGH);
+  delay(500);
+}
+
+// switch StepUpModul power ON
+void VStepUpOn()
+{
+  Log.notice(F("VStepUpOn"));
+  pinMode(VStepUpPin,OUTPUT);
+  digitalWrite(VStepUpPin, LOW);
+  delay(500);
+}
+
+// switch StepUpModul power OFF
+void VStepUpOFF() //Vext default OFF
+{
+  Log.notice(F("VStepUpOFF"));
+  pinMode(VStepUpPin,OUTPUT);
+  digitalWrite(VStepUpPin, HIGH);
   delay(500);
 }
 
@@ -89,8 +111,8 @@ void set_led(uint8_t r, uint8_t g, uint8_t b) {
 void reset_measurement_data() {
   Log.notice(F("reset_measurement_data - reset appData fields"));
   // initialize the entire appData field, even if not used later
-  appData[0] = 0;  // BATTERY_VOLTAGE
-  appData[1] = 0;  // BATTERY_VOLTAGE
+  appData[0] = 0;  // VDD_VOLTAGE
+  appData[1] = 0;  // VDD_VOLTAGE
   appData[2] = 0;  // temperature
   appData[3] = 0;  // temperature
   appData[4] = 0;  // humidity
@@ -104,7 +126,7 @@ void reset_measurement_data() {
 }
 
 /********************************************/
-/* battery check and deep sleep mode switch */
+/* power check and deep sleep mode switch */
 /********************************************/
 
 void set_measurement_status(bool on) {
@@ -127,41 +149,44 @@ void set_measurement_status(bool on) {
  }
 }
 
-void check_battery() {
-  // get first time battery level for sending via LoRaWAN initialization
-  Log.notice(F("check_battery"));
+void check_VDD() {
+  // get power level
+  Log.notice(F("check_VDD via voltage divider and ADC pin GPIO2 after 5 seconds"));
+  delay(5000);
 
-  BATTERY_VOLTAGE = getBatteryVoltage();
-  Log.verbose(F("BATTERY_VOLTAGE in millivolt: %d"),BATTERY_VOLTAGE);
+  VDD_VOLTAGE=analogReadmV(ADC) * 1.18 * 2; // voltage divider VDD/GND 2x1MOhm correction factor: 1.18 
 
-  if ( DO_MEASUREMENT && BATTERY_VOLTAGE <= MEASURE_SHUTDOWN_VOLTAGE ) {
-    set_measurement_status(false);
-    Log.error(F("battery level to low, DO_MEASUREMENT: %d"),DO_MEASUREMENT);
-    LAST_BATTERY_VOLTAGE = BATTERY_VOLTAGE;
-  }
+  //VDD_VOLTAGE = getBatteryVoltage();
+  Log.verbose(F("VDD_VOLTAGE in millivolt: %d"),VDD_VOLTAGE);
 
-  if ( !DO_MEASUREMENT && BATTERY_VOLTAGE > MEASURE_RESTART_VOLTAGE ) {
-    set_measurement_status(true);
-    Log.verbose(F("battery level good, DO_MEASUREMENT: %d"),DO_MEASUREMENT);
-  }
+  // if ( DO_MEASUREMENT && VDD_VOLTAGE <= MEASURE_SHUTDOWN_VOLTAGE ) {
+  //   set_measurement_status(false);
+  //   Log.error(F("battery level to low, DO_MEASUREMENT: %d"),DO_MEASUREMENT);
+  //   LAST_VDD_VOLTAGE = VDD_VOLTAGE;
+  // }
 
-  if (!DO_MEASUREMENT) {
-    if ( BATTERY_VOLTAGE < LAST_BATTERY_VOLTAGE) {
-      appTxDutyCycle += DEEP_SLEEP_TIME;
-    }
-    if ( BATTERY_VOLTAGE > LAST_BATTERY_VOLTAGE) {
-      appTxDutyCycle = DEEP_SLEEP_TIME;
-    }
-    LAST_BATTERY_VOLTAGE = BATTERY_VOLTAGE;
-    set_led(0,0,0);
-  } else {
-    // reset appTxDutyCycle to default cycle time
-    appTxDutyCycle = DEEP_SLEEP_CYCLE;
-  }
-  
+  // if ( !DO_MEASUREMENT && VDD_VOLTAGE > MEASURE_RESTART_VOLTAGE ) {
+  //   set_measurement_status(true);
+  //   Log.verbose(F("battery level good, DO_MEASUREMENT: %d"),DO_MEASUREMENT);
+  // }
+
+  // if (!DO_MEASUREMENT) {
+  //   if ( VDD_VOLTAGE < LAST_VDD_VOLTAGE) {
+  //     appTxDutyCycle += DEEP_SLEEP_TIME;
+  //   }
+  //   if ( VDD_VOLTAGE > LAST_VDD_VOLTAGE) {
+  //     appTxDutyCycle = DEEP_SLEEP_TIME;
+  //   }
+  //   LAST_VDD_VOLTAGE = VDD_VOLTAGE;
+  //   set_led(0,0,0);
+  // } else {
+  //   // reset appTxDutyCycle to default cycle time
+  //   appTxDutyCycle = DEEP_SLEEP_CYCLE;
+  // }
+
   // prepare LoRaWAN TX buffer
-  appData[0] = BATTERY_VOLTAGE;
-  appData[1] = BATTERY_VOLTAGE>>8;
+  appData[0] = VDD_VOLTAGE;
+  appData[1] = VDD_VOLTAGE>>8;
   
 }
 
@@ -295,13 +320,14 @@ void measure() {
   Log.notice(F("measure"));
   // reset and get measurement data
   reset_measurement_data();
-  check_battery();
+  check_VDD();
 
   if ( DO_MEASUREMENT && ! REMOTE_NO_MEASUREMENT ) {
     // initialize and read PM data from SDS011
     // switch power ON for SDS011 and BME280 sensor
     VextON();
-   
+    VStepUpOn();
+       
     init_SDS011();
     get_SDS011();
   
@@ -317,10 +343,11 @@ void measure() {
     get_BME280();
     Wire.end();
 
-    // switch OFF Vext to save power during sleep period
+    // switch OFF to save power during sleep period
     if ( !DRAIN_BATTERY ) {
       detachInterrupt(_BoardRxPin); // prevents system hang after switching power off
       VextOFF();
+      VStepUpOFF();
     }
   } else {
     Log.verbose(F(" Measurement disabled by: DO_MEASUREMENT=%d AND REMOTE_NO_MEASUREMENT=%d"),
@@ -408,18 +435,6 @@ static void prepareTxFrame( uint8_t port )
   Log.notice(F("prepareTxFrame finished"));
 }
 
-void  setup_check_battery() {
-  // get first time battery level 
-  Log.notice(F("Logmessage notice setup_check_battery"));
-  BATTERY_VOLTAGE = getBatteryVoltage();
-  Log.verbose(F("BATTERY_VOLTAGE in millivolt:: %d"),BATTERY_VOLTAGE);
-
-  if ( BATTERY_VOLTAGE <= MEASURE_SHUTDOWN_VOLTAGE ) {
-    Log.error(F("ERROR: battery level to low for measurement"));
-    set_measurement_status(false);
-  }
-}
-
 // Logging helper routines
 void printTimestamp(Print* _logOutput, int logLevel) {
   static char c[12];
@@ -450,8 +465,6 @@ void setup() {
   setup_logging();
 
   print_timer_values();
-  
-  setup_check_battery();
 
 #if(AT_SUPPORT)
 	enableAt();
